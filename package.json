@@ -1,0 +1,11 @@
+{
+  "name": "crawler",
+  "version": "0.0.1",
+  "description": "node爬虫爬取车300网站车型数据",
+  "dependencies": {
+    
+  },
+  "devDependencies": {
+    
+  }
+}
