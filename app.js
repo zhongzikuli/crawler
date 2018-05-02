@@ -33,16 +33,16 @@ function start(num) {
                         }
                     })
                 } else {
-                    console.log('第"' + num + '"页数据出错了!')
+                    console.log('第"' + num + '"页数据出错了!');
                     continueFn(num)
                 }
             }else{
-                console.log('第"' + num + '"页空白数据!')
+                console.log('第"' + num + '"页空白数据!');
                 continueFn(num)
             }
         })
     }).on('error', function () {
-        console.log('第"' + num + '"页网络请求出错了!')
+        console.log('第"' + num + '"页网络请求出错了!');
         continueFn(num)
     })
 }
