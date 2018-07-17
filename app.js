@@ -1,16 +1,19 @@
-var https = require('https');
-var fs = require('fs');
-var baseUrl = "https://ssl-meta.che300.com/meta/model/model_series";
-var count = 1;
-var limit = 50000;
+/**
+ * Created by zhongzikuli <hgb102xlg@126.com> on 18/3/2.
+ */
+let https = require('https');
+let fs = require('fs');
+let baseUrl = "https://ssl-meta.che300.com/meta/model/model_series";
+let count = 1;
+let limit = 50000;
 
 start(count);
 
 function start(num) {
     https.get(baseUrl + num + '.json', function (res) {
         res.setEncoding('utf-8');// 设置编码
-        var model = '';
-        var modelArr = [];
+        let model = '';
+        let modelArr = [];
         res.on('data', function (chunk) {
             model += chunk;
         });
@@ -24,7 +27,7 @@ function start(num) {
                         }
                     });
                     model = JSON.stringify(modelArr);
-                    fs.appendFile('model.txt', model, function (err) {
+                    fs.appendFile('carData.txt', model, function (err) {
                         if (err) {
                             console.log('出现错误!')
                         } else {
@@ -36,7 +39,7 @@ function start(num) {
                     console.log('第"' + num + '"页数据出错了!');
                     continueFn(num)
                 }
-            }else{
+            } else {
                 console.log('第"' + num + '"页空白数据!');
                 continueFn(num)
             }
